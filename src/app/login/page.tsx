@@ -37,14 +37,14 @@ export default function Page() {
             <div className="flex flex-col w-full border-opacity-50">
               <button className="btn btn-primary">Log In</button>
 
-              <div className="divider">OR</div>
+              {/* <div className="divider">OR</div>
 
               <SocialLoginButton
                 outline
                 label="Continue with Google"
                 icon={FcGoogle}
                 onClick={() => signIn("google")}
-              />
+              /> */}
             </div>
           </div>
         </div>
