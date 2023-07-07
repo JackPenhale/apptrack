@@ -99,11 +99,11 @@ export default function JobForm(currentJob: FormProps) {
             >
               {appStatusOptions.map((status) =>
                 currentJob.currentJob.status === status ? (
-                  <option value={status} selected>
+                  <option key={status} value={status} selected>
                     {status}
                   </option>
                 ) : (
-                  <option value={status}>{status}</option>
+                  <option key={status} value={status}>{status}</option>
                 )
               )}
             </select>

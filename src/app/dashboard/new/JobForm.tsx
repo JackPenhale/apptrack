@@ -97,7 +97,7 @@ export default function JobForm(currentJob: FormProps) {
               className="select w-full max-w-xs select-bordered"
             >
               {appStatusOptions.map((status) => (
-                <option value={status}>{status}</option>
+                <option key={status} value={status}>{status}</option>
               ))}
             </select>
           </div>
