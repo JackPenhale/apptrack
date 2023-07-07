@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 interface FormProps {
-  currentJob: Job;
+  currentJob?: Job;
 }
 
 const updateJob = async (id: string, data: Job) => {

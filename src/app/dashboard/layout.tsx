@@ -12,7 +12,7 @@ export default async function DashboardLayout({
   return (
     <div className="flex flex-col bg-base-100 lg:flex-row">
       <div className="flex w-100vw lg:w-1/5 h-full p-4 bg-neutral lg:bg-base-100">
-        <Profile user={user} />
+        {user && <Profile user={user} />}
       </div>
       {children}
     </div>
