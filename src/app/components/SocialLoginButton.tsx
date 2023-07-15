@@ -6,7 +6,7 @@ interface AuthSocialButtonProps {
   provider: String;
 }
 
-const ScocialLoginButton: React.FC<AuthSocialButtonProps> = ({
+const SocialLoginButton: React.FC<AuthSocialButtonProps> = ({
   icon: Icon,
   onClick,
   provider,
@@ -17,7 +17,7 @@ const ScocialLoginButton: React.FC<AuthSocialButtonProps> = ({
       onClick={onClick}
       className="
    btn
-   btn-primary
+   btn-outline
    m-4
       "
     >
@@ -27,4 +27,4 @@ const ScocialLoginButton: React.FC<AuthSocialButtonProps> = ({
   );
 };
 
-export default ScocialLoginButton;
+export default SocialLoginButton;

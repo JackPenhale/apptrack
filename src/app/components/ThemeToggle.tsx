@@ -4,18 +4,21 @@ import React, { useEffect } from "react";
 import { themeChange } from "theme-change";
 
 const ThemeToggle = () => {
-  useEffect(() => {
-    themeChange(darkMode);
-  }, []);
-  const [darkMode, setDarkMode] = React.useState(false);
-  const handleChange = () => {
-    setDarkMode(!darkMode);
-    themeChange(darkMode);
-    console.log(darkMode + "NIGHT MODE IS ON");
+
+  const [theme, setTheme] = React.useState("dark");
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
   };
+  // initially set the theme and "listen" for changes to apply them to the HTML tag
+  React.useEffect(() => {
+    let selectedHtml = document.querySelector("html");
+    if (selectedHtml) {
+      selectedHtml.setAttribute("data-theme", theme);
+    }
+  }, [theme]);
   return (
     <label className="swap swap-rotate">
-      <input type="checkbox" checked={darkMode} onChange={handleChange} />
+      <input type="checkbox"  onChange={toggleTheme} />
 
       <svg
         className="swap-on fill-current w-10 h-10"

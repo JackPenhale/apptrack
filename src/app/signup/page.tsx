@@ -25,8 +25,8 @@ export default function Page() {
   };
 
   return (
-    <main className="flex h-screen flex-col items-center justify-between p-24 bg-base-100">
-      <div className="hero h-screen bg-neutral">
+    <main className="flex h-screen flex-col items-center justify-between p-24 ">
+      <div className="hero h-screen ">
         <SocialLoginButton
           icon={FcGoogle}
           onClick={() => socialAction("google")}

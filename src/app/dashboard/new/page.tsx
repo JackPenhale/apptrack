@@ -22,13 +22,13 @@ export default async function Page() {
   ];
   return (
     <div className="lg:w-4/5 p-4">
-      <div className="h-auto w-full rounded-3xl flex flex-col bg-neutral p-7">
+      <div className="h-auto w-full rounded-3xl flex flex-col bg-base-200 p-7">
         <div className="flex">
           <Link href="/dashboard" className="pr-5">
             <MdArrowBack className="h-full" size={30} />
           </Link>
 
-          <h1 className="text-slate-100 font-black  text-2xl lg:text-3xl">
+          <h1 className="text-base-content font-black  text-2xl lg:text-3xl">
             Add an Application
           </h1>
         </div>

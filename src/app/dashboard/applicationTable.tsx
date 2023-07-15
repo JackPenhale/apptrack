@@ -12,7 +12,7 @@ const ApplicationTable: React.FC<ApplicationTableProps> = ({ jobs }) => {
   if (jobs.length === 0) {
     content = (
       <div className="w-full flex flex-col text-center h-96 align-middle items-center justify-center">
-        <h1 className="text-slate-100 font-black text-3xl pb-10">
+        <h1 className="text-base-content font-black text-3xl pb-10">
           No Job Applications Found!
         </h1>
         <Link href="/dashboard/new">
@@ -24,7 +24,7 @@ const ApplicationTable: React.FC<ApplicationTableProps> = ({ jobs }) => {
     content = (
       <div className="relative overflow-x-auto shadow-md sm:rounded-3xl">
         <div className="flex w-full justify-between p-5">
-          <h1 className="text-slate-100 font-black text-2xl lg:text-3xl">
+          <h1 className="text-base-content font-black text-2xl lg:text-3xl">
             Applications:
           </h1>
           <Link href="/dashboard/new">
@@ -33,7 +33,7 @@ const ApplicationTable: React.FC<ApplicationTableProps> = ({ jobs }) => {
             </button>
           </Link>
         </div>
-        <table className="table table-zebra w-full">
+        <table className="table bg-base-300 table-zebra w-full">
           {/* head */}
           <thead>
             <tr>
@@ -50,11 +50,7 @@ const ApplicationTable: React.FC<ApplicationTableProps> = ({ jobs }) => {
                 <th scope="row">{job.jobTitle}</th>
                 <td>{job.companyName}</td>
                 <td className="hidden md:table-cell">
-                  {job.createdAt.getMonth() +
-                    "/" +
-                    job.createdAt.getDate() +
-                    "/" +
-                    job.createdAt.getFullYear()}
+                  {job.appliedAt}
                 </td>
                 <td className="hidden md:table-cell">{job.status}</td>
                 <td>
@@ -70,7 +66,7 @@ const ApplicationTable: React.FC<ApplicationTableProps> = ({ jobs }) => {
     );
   }
   return (
-    <div className="h-auto w-full rounded-3xl flex flex-col bg-neutral">
+    <div className="h-auto w-full rounded-3xl flex flex-col bg-base-200">
       {content}
     </div>
   );

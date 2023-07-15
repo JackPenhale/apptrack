@@ -4,6 +4,7 @@ export type Job = {
     linkToJob: string;
     createdAt: Date;
     updatedAt: Date;
+    appliedAt: String;
     status: string
     note?: string;
     id: string;

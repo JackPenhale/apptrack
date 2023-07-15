@@ -71,6 +71,7 @@ export async function GET(
     { params }: { params: IParams }
   ) {
     try {
+      
       const json = await request.json();
       const {
         jobTitle,

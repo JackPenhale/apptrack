@@ -10,8 +10,8 @@ export default async function DashboardLayout({
 }) {
   const user = await getCurrentUser();
   return (
-    <div className="flex flex-col bg-base-100 lg:flex-row">
-      <div className="flex w-100vw lg:w-1/5 h-full p-4 bg-neutral lg:bg-base-100">
+    <div className="flex flex-col lg:flex-row">
+      <div className="flex w-100vw lg:w-1/5 h-full p-4">
         {user && <Profile user={user} />}
       </div>
       {children}

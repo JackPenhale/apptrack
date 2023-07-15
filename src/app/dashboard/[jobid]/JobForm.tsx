@@ -14,12 +14,7 @@ interface FormProps {
   currentJob: Job;
 }
 
-const updateJob = async (id: string, data: Job) => {
-  let redircet = false;
-};
-
 export default function JobForm(currentJob: FormProps) {
-  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -27,11 +22,12 @@ export default function JobForm(currentJob: FormProps) {
     formState: { errors },
   } = useForm<Job>();
   const onSubmit: SubmitHandler<Job> = (data) => {
+    console.log("WE ARE SUMBITTING" + data);
     axios
       .post(`/api/jobs/${currentJob.currentJob.id}`, data)
       .then((res) => {
         console.log(res.data);
-        window.location.href = "/dashboard"
+        window.location.href = "/dashboard";
       })
       .catch((err) => {
         console.log(err);
@@ -44,13 +40,14 @@ export default function JobForm(currentJob: FormProps) {
     "Accepted",
     "Rejected",
   ];
+
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="lg:pt-12 w-full flex justify-center items-center flex-col"
     >
-      <div className="flex w-full justify-center items-center ">
+      <div className="flex w-full justify-center items-center">
         <div className="flex flex-col lg:flex-row lg:w-3/4 justify-between ">
           <div className="lg:w-1/2">
             <label className="label">
@@ -76,17 +73,17 @@ export default function JobForm(currentJob: FormProps) {
           </div>
         </div>
       </div>
-      <div className="flex w-full justify-center items-center lg:pt-5">
-        <div className="flex flex-col lg:flex-row lg:w-3/4 justify-between">
+      <div className="flex w-full justify-center items-center">
+        <div className="flex lg:flex-row flex-col lg:w-3/4 justify-between ">
           <div className="lg:w-1/2">
             <label className="label">
-              <span className="label-text">Application Date</span>
+              <span className="label-text">Company Name</span>
             </label>
-
-            <ReactDatePicker
-              selected={new Date(currentJob.currentJob.createdAt)}
-              onChange={(date) => console.log(date)}
-              className="input input-bordered cursor-pointer w-full max-w-xs"
+            <input
+              className="input input-bordered w-full max-w-xs"
+              type="date"
+              defaultValue={currentJob.currentJob.appliedAt}
+              {...register("appliedAt", { required: true })}
             />
           </div>
           <div className="lg:w-1/2">
@@ -103,20 +100,17 @@ export default function JobForm(currentJob: FormProps) {
                     {status}
                   </option>
                 ) : (
-                  <option key={status} value={status}>{status}</option>
+                  <option key={status} value={status}>
+                    {status}
+                  </option>
                 )
               )}
             </select>
-            {/* <input
-        className="input input-bordered w-full max-w-xs"
-        type="datetime"
-        {...register("createdAt", {})}
-      /> */}
           </div>
         </div>
       </div>
       <div className="flex w-full justify-center items-center lg:pt-5">
-        <div className="flex flex-col lg:flex-row lg:w-3/4 justify-between ">
+        <div className="flex lg:flex-row flex-col lg:w-3/4 justify-between ">
           <div className="lg:w-1/2">
             <label className="label">
               <span className="label-text">Link to Job</span>
@@ -126,11 +120,8 @@ export default function JobForm(currentJob: FormProps) {
                 className="input input-bordered w-full max-w-xs"
                 type="text"
                 defaultValue={currentJob.currentJob.linkToJob}
-                {...register("linkToJob", {})}
+                {...register("linkToJob", { required: true })}
               />
-              <a href={currentJob.currentJob.linkToJob}>
-                <BiLinkExternal size={30} className="h-full" />
-              </a>
             </div>
           </div>
           <div className="lg:w-1/2">
@@ -146,13 +137,11 @@ export default function JobForm(currentJob: FormProps) {
           </div>
         </div>
       </div>
-
       <div className="flex w-3/4 justify-start items-center py-12">
         <button type="submit" className="btn btn-primary w-20 mr-5 ">
-          Edit
+          Submit
         </button>
         <Link href={`/dashboard/`}>
-          {/* @ts-expect-error Server Component */}
           <DeleteButton jobid={currentJob.currentJob.id} />
         </Link>
       </div>

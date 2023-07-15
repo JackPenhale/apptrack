@@ -30,7 +30,7 @@ export default function JobForm(currentJob: FormProps) {
       .post(`/api/jobs`, data)
       .then((res) => {
         console.log(res.data);
-        window.location.href = "/dashboard"
+        window.location.href = "/dashboard";
       })
       .catch((err) => {
         console.log(err);
@@ -81,11 +81,11 @@ export default function JobForm(currentJob: FormProps) {
             <label className="label">
               <span className="label-text">Application Date</span>
             </label>
-
-            <ReactDatePicker
-              selected={new Date(Date.now())}
-              onChange={(date) => console.log(date)}
-              className="input input-bordered cursor-pointer w-full max-w-xs"
+            <input
+              className="input input-bordered w-full max-w-xs"
+              type="date"
+              defaultValue={new Date().toISOString().substr(0, 10)}
+              {...register("appliedAt", { required: true })}
             />
           </div>
           <div className="lg:w-1/2">
@@ -97,7 +97,9 @@ export default function JobForm(currentJob: FormProps) {
               className="select w-full max-w-xs select-bordered"
             >
               {appStatusOptions.map((status) => (
-                <option key={status} value={status}>{status}</option>
+                <option key={status} value={status}>
+                  {status}
+                </option>
               ))}
             </select>
           </div>
