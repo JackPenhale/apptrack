@@ -120,7 +120,7 @@ const AuthForm = () => {
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           {variant === "REGISTER" && (
             <input
-              className="input bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+              className="text-base-content  input bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:text-base-200"
               disabled={isLoading}
               {...register("name", { required: true })}
               required
@@ -130,7 +130,7 @@ const AuthForm = () => {
             />
           )}
           <input
-            className="input bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+            className="text-base-content input bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-50"
             disabled={isLoading}
             {...register("email", { required: true })}
             required
@@ -139,7 +139,7 @@ const AuthForm = () => {
             placeholder="Email"
           />
           <input
-            className="input bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+            className="text-base-content  input bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-50"
             disabled={isLoading}
             {...register("password", { required: true })}
             required
@@ -171,7 +171,7 @@ const AuthForm = () => {
               <div className="w-full border-t border-gray-300" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="bg-neutral px-2 text-white">Or</span>
+              <span className=" bg-base-200 px-2 text-base-content">Or</span>
             </div>
           </div>
 
@@ -191,7 +191,7 @@ const AuthForm = () => {
             text-sm 
             mt-6 
             px-2 
-            text-gray-500
+            text-base-content
           "
         >
           <div>
@@ -199,6 +199,7 @@ const AuthForm = () => {
               ? "New to AppTrack?"
               : "Already have an account?"}
           </div>
+          
           <div onClick={toggleVariant} className="underline cursor-pointer">
             {variant === "LOGIN" ? "Create an account" : "Login"}
           </div>

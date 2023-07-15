@@ -20,7 +20,7 @@ export default function Home() {
         <div className="hero-content text-center">
           <div className="max-w-md">
             <h1 className="text-5xl font-bold font-base-content">
-              Welcome to <span className="text-primary">Appli</span>Track
+              Welcome to <span className="text-primary">App</span>Track
             </h1>
             <p className="py-6">Keep your job applications sorted</p>
             <div className="flex flex-col">

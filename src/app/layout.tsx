@@ -6,7 +6,7 @@ import ToasterContext from "./components/ToasterContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "AppliTrack",
+  title: "AppTrack",
   description: "track your job apps",
 };
 

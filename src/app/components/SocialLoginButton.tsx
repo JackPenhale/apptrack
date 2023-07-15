@@ -15,7 +15,9 @@ const SocialLoginButton: React.FC<AuthSocialButtonProps> = ({
     <button
       type="button"
       onClick={onClick}
+      disabled
       className="
+     
    btn
    btn-outline
    m-4
