@@ -15,7 +15,7 @@ interface IParams {
 }
 
 const JobPage = async ({ params }: { params: IParams }) => {
-  const currentJob = await getJobById(params.jobid);
+  const currentJob = await getJobById(params.jobid) as Job;
 
   if (!currentJob || !params.jobid) {
     return <div>Job not found</div>;
