@@ -12,20 +12,22 @@ const SocialLoginButton: React.FC<AuthSocialButtonProps> = ({
   provider,
 }) => {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled
-      className="
+    <div className="tooltip" data-tip="Google Oauth does not work on .app domains">
+      <button
+        type="button"
+        onClick={onClick}
+        disabled
+        className="
      
    btn
    btn-outline
    m-4
       "
-    >
-      <Icon className="" />
-      sign in with {provider}
-    </button>
+      >
+        <Icon className="" />
+        sign in with {provider}
+      </button>
+    </div>
   );
 };
 
